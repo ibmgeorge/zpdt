@@ -1,0 +1,80 @@
+#ADCD z/OS V2R4 Nov Edition of 2019
+#Devmap definition: TCPIP QDIO definition
+
+[system]
+memory 8g
+3270port 3270
+processor 4 cp cp cp ziip
+command 2 sync echo "Entering CPU PERFORMANCE mode."
+command 2 sync sudo cpupower frequency-set --governor performance
+command 2 sync echo "Enabling external network access and port forwarding."
+command 2 sync sudo /home/ibmsys1/zpdt/setupNAT-rhel.sh
+command 2 sync tmux send-key -t 2 C-m
+command 2 sync tmux send-key -t 3 C-m
+command 4 sync echo "Entering CPU POWERSAVE mode."
+command 4 sync sudo cpupower frequency-set --governor powersave
+command 4 sync tmux send-key -t 0 q
+
+[adjunct-processors]
+crypto 0
+crypto 1
+
+[manager]
+name aws3274 1
+device 0700 3279 3174 L700
+device 0701 3279 3174 L701
+device 0702 3279 3174 L702
+device 0703 3279 3174 L703
+
+[manager]
+name awsckd 29
+device 0a80 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4res1
+device 0a81 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4res2
+device 0a82 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4sys1
+device 0a83 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4cfg1
+device 0a84 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4uss1
+device 0a85 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4uss2
+device 0a86 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4paga
+device 0a87 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4pagb
+device 0a88 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4pagc
+device 0a89 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd1
+device 0a8a 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd2
+device 0a8b 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd3
+device 0a8c 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd4
+device 0a8d 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dis1
+device 0a8e 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dis2
+device 0a8f 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dis3
+device 0a90 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4c541
+device 0a91 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4c551
+device 0a92 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dbc1
+device 0a93 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dbc2
+device 0a94 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4usr1
+device 0a95 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dbb1
+device 0a96 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dbb2
+device 0a97 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4kan1
+device 0a98 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4ime1
+device 0a99 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4imf1
+device 0a9a 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4w901
+device 0a9b 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4w902
+device 0a9c 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4inm1
+device 0a9d 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4zcx1
+device 0a9e 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd5
+#device 0a9f 3390 3990 
+#device 0aa0 3390 3990 
+#device 0aa1 3390 3990 
+#device 0aa2 3390 3990 
+device 0aa3 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4dbar # D2DBAR should be on 0AA3
+device 0aa4 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/user01
+device 0aa5 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/user02
+
+[manager]
+name awsosa 0024  --path=a0 --pathtype=OSD --tunnel_intf=y
+device 400 osa osa --unitadd=0
+device 401 osa osa --unitadd=1
+device 402 osa osa --unitadd=2
+
+# [manager]
+# name awsosa 0022  --path=f0 --pathtype=OSD
+# device 404 osa osa
+# device 405 osa osa
+# device 406 osa osa

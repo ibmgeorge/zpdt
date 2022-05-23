@@ -1,2 +1,1 @@
 # zpdt
-zPDT configurations

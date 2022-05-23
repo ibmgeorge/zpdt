@@ -1,0 +1,21 @@
+[system]
+memory 2000m
+processors 1
+command 2 sync ipl 02a0
+
+[manager]
+name awsckd 22
+device 02A0 3390 3990 /zPDT/ubuntu
+
+[manager]
+name awsosa 0033  --path=a0 --pathtype=OSD --tunnel_intf=y
+device 400 osa osa --unitadd=0
+device 401 osa osa --unitadd=1
+device 402 osa osa --unitadd=2
+
+[manager]
+name awsosa 0034  --path=f4 --pathtype=OSD
+device 404 osa osa
+device 405 osa osa
+device 406 osa osa
+

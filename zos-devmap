@@ -1,0 +1,105 @@
+#ADCD z/OS V2R2 May Edition of 2017
+#Devmap definition: TCPIP QDIO definition
+
+[system]
+memory 4g
+3270port 3271
+processor 1 cp
+command 2 x3270 -model 4 localhost:3271 > /dev/null 2>&1
+command 2 x3270 -model 4 localhost:3271 > /dev/null 2>&1
+command 2 sync echo "Entering CPU PERFORMANCE mode."
+command 2 sync sudo cpupower frequency-set --governor performance
+#command 2 sync ipl a80 parm 0a82ci
+#command 2 sync echo "Enabling external network access and port forwarding."
+#command 2 sync sudo /zPDT/setupNAT.sh
+
+command 4 sync echo "Entering CPU POWERSAVE mode."
+command 4 sync sudo cpupower frequency-set --governor powersave
+
+[manager]
+name aws3274 1
+device 0700 3279 3174 L700
+device 0701 3279 3174 L701
+device 0702 3279 3174 L702
+device 0703 3279 3174 L703
+device 0704 3279 3174 L704
+device 0705 3279 3174 L705
+device 0706 3279 3174 L706
+device 0707 3279 3174 L707
+device 0708 3279 3174 L708
+device 0709 3279 3174 L709
+device 070A 3279 3174 L70A
+device 070B 3279 3174 L70B
+device 070C 3279 3174 L70C
+device 070D 3279 3174 L70D
+device 070E 3279 3174 L70E
+device 070F 3279 3174 L70F
+device 0710 3279 3174 L710
+device 0711 3279 3174 L711
+device 0712 3279 3174 L712
+device 0713 3279 3174 L713
+device 0714 3279 3174 L714
+device 0715 3279 3174 L715
+device 0716 3279 3174 L716
+device 0717 3279 3174 L717
+device 0718 3279 3174 L718
+device 0719 3279 3174 L719
+device 071A 3279 3174 L71A
+device 071B 3279 3174 L71B
+device 071C 3279 3174 L71C
+device 071D 3279 3174 L71D
+device 071E 3279 3174 L71E
+device 071F 3279 3174 L71F
+
+[manager]
+name awsckd 29
+device 0a80 3390 3990 /zPDT/volumes/d2res1
+device 0a81 3390 3990 /zPDT/volumes/d2res2
+device 0a82 3390 3990 /zPDT/volumes/d2sys1
+device 0a83 3390 3990 /zPDT/volumes/d2cfg1
+device 0a84 3390 3990 /zPDT/volumes/d2uss1
+device 0a85 3390 3990 /zPDT/volumes/d2uss2
+device 0a86 3390 3990 /zPDT/volumes/d2paga
+device 0a87 3390 3990 /zPDT/volumes/d2pagb
+device 0a88 3390 3990 /zPDT/volumes/d2pagc
+device 0a89 3390 3990 /zPDT/volumes/d2prd1
+device 0a8a 3390 3990 /zPDT/volumes/d2prd2
+device 0a8b 3390 3990 /zPDT/volumes/d2prd3
+device 0a8c 3390 3990 /zPDT/volumes/d2dis1
+device 0a8d 3390 3990 /zPDT/volumes/d2dis2
+device 0a8e 3390 3990 /zPDT/volumes/sares1
+device 0a8f 3390 3990 /zPDT/volumes/d2inm1
+device 0a91 3390 3990 /zPDT/volumes/d2c531
+device 0a92 3390 3990 /zPDT/volumes/d2dbc1
+device 0a93 3390 3990 /zPDT/volumes/d2dbc2
+device 0aa2 3390 3990 /zPDT/volumes/user01
+device 0aa3 3390 3990 /zPDT/volumes/d2dbar # D2DBAR should be on 0AA
+device 0aa4 3390 3990 /zPDT/volumes/user02
+
+# device 0a90 3390 3990 /home/george/zPDT/volumes/d2c521
+# device 0a94 3390 3990 /home/george/zPDT/volumes/d2kan1
+# device 0a95 3390 3990 /home/george/zPDT/volumes/d2dbb1
+# device 0a96 3390 3990 /home/george/zPDT/volumes/d2dbb2
+# device 0a97 3390 3990 /home/george/zPDT/volumes/d2w851
+# device 0a98 3390 3990 /home/george/zPDT/volumes/d2w852
+# device 0a99 3390 3990 /home/george/zPDT/volumes/d2w853
+# device 0a9a 3390 3990 /home/george/zPDT/volumes/d2w854
+# device 0a9b 3390 3990 /home/george/zPDT/volumes/d2w855
+# device 0a9c 3390 3990 /home/george/zPDT/volumes/d2w901
+# device 0a9d 3390 3990 /home/george/zPDT/volumes/d2w902
+# device 0a9e 3390 3990 /home/george/zPDT/volumes/d2blz1
+# device 0a9f 3390 3990 /home/george/zPDT/volumes/d2imd1
+# device 0aa0 3390 3990 /home/george/zPDT/volumes/d2ime1
+
+[manager]
+name awsosa 0024  --path=a1 --pathtype=OSD --tunnel_intf=y
+device 400 osa osa --unitadd=0
+device 401 osa osa --unitadd=1
+device 402 osa osa --unitadd=2
+
+# [manager]
+# name awsosa 0022  --path=f0 --pathtype=OSD
+# device 404 osa osa
+# device 405 osa osa
+# device 406 osa osa
+
