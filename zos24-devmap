@@ -9,7 +9,7 @@ command 2 x3270 -model 4 localhost:3270 > /dev/null 2>&1
 command 2 x3270 -model 4 localhost:3270 > /dev/null 2>&1
 command 2 sync echo "Entering CPU PERFORMANCE mode."
 command 2 sync sudo cpupower frequency-set --governor performance
-command 2 sync ipl a80 parm 0a82ci
+command 2 sync ipl a80 parm 0a82al
 command 2 sync echo "Enabling external network access and port forwarding."
 command 2 sync sudo /home/ibmsys1/zpdt/setupNAT-rhel.sh
 
