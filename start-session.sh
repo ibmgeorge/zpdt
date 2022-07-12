@@ -13,7 +13,7 @@ if [ $? != 0 ]; then
         select-pane -t 0 \; \
         splitw -vl 20 \; \
 	send-keys 'alias redraw="tmux send-key -t 2 C-l && tmux send-key -t 3 C-l"' C-m \; \
-        send-keys 'awsstart ~/zpdt/zos24-devmap-tmux' C-m '# Press ENTER to IPL. ' C-m 'ipl a80 parm 0a82ci' \; \
+        send-keys 'awsstart ~/zpdt/zos24-devmap-tmux' C-m '# Press ENTER to IPL. ' C-m 'ipl a80 parm 0a82al' \; \
 	set -g mouse on \;
 else
 	tmux attach-session -t $session

@@ -59,7 +59,7 @@ device 0a9b 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4w902
 device 0a9c 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4inm1
 device 0a9d 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4zcx1
 device 0a9e 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4prd5
-#device 0a9f 3390 3990 
+device 0a9f 3390 3990 /home/ibmsys1/zpdt/zos-2.4-Nov/a4blz1
 #device 0aa0 3390 3990 
 #device 0aa1 3390 3990 
 #device 0aa2 3390 3990 
